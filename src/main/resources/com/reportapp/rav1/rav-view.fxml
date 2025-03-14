@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<TabPane xmlns:fx="http://javafx.com/fxml"
+         fx:controller="com.reportapp.rav1.RAVController" stylesheets="@styles.css">
+
+    <tabs>
+        <Tab text="TAGESPROTOKOL" closable="false">
+            <ScrollPane fitToHeight="true">
+                <content>
+                    <VBox alignment="TOP_LEFT">
+                        <padding>
+                            <Insets left="5" right="10"/>
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <padding>
+                                <Insets bottom="5" top="5"/>
+                            </padding>
+
+                            <Label text="Datum:"/>
+                            <Label fx:id="datumLabel"/>
+                            <Label text="Schneidtag:"/>
+                            <Label fx:id="schneidtagLabel"/>
+                            <Label text="Schicht:"/>
+                            <TextField fx:id="schichtField" prefWidth="25" alignment="CENTER"/>
+                            <Label text="Linie:"/>
+                            <TextField fx:id="linieField" prefWidth="25" alignment="CENTER"/>
+                        </HBox>         <!-- Datum -->
+
+                        <Separator/>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <padding>
+                                <Insets bottom="5" top="5"/>
+                            </padding>
+
+                            <HBox>
+                                <Label text="Personal:"/>
+                            </HBox>
+                            <VBox>
+                                <Label text="Linienfuhrer:"/>
+                                <TextField fx:id="linienfuhrerField" prefWidth="120" alignment="CENTER"/>
+                            </VBox>
+                            <VBox>
+                                <Label text="Schaler:"/>
+                                <TextField fx:id="schalerField" prefWidth="120" alignment="CENTER"/>
+                            </VBox>
+                            <VBox>
+                                <Label text="Einleger:"/>
+                                <TextField fx:id="einlegerField" prefWidth="120" alignment="CENTER"/>
+                            </VBox>
+                            <VBox>
+                                <Label text="Abschlichter:"/>
+                                <HBox spacing="10">
+                                    <TextField fx:id="absch1Field" prefWidth="120" alignment="CENTER"/>
+                                    <TextField fx:id="absch2Field" prefWidth="120" alignment="CENTER"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>         <!-- Personal -->
+
+                        <Separator/>
+
+                        <VBox alignment="TOP_CENTER">
+                            <padding>
+                                <Insets bottom="5" top="5"/>
+                            </padding>
+
+                            <Label text="PRODUKTIONSDOKUMENTATION"/>
+
+                            <HBox alignment="CENTER" spacing="5">
+                                <padding>
+                                    <Insets top="5"/>
+                                </padding>
+                                <Label text="Artikel Nummer:"/>
+                                <TextField fx:id="artikelNrField" prefWidth="100" alignment="CENTER"/>
+                                <Label text="Bezeichnung:"/>
+                                <TextField fx:id="bezeichnungField" prefWidth="300" alignment="CENTER"/>
+                                <Label text="Zeit Beginn:"/>
+                                <TextField fx:id="zeitBeginnField" prefWidth="60" alignment="CENTER"/>
+                                <Label text="Zeit Ende:"/>
+                                <TextField fx:id="zeitEndeField" prefWidth="60" alignment="CENTER"/>
+                            </HBox>
+
+                            <Label fx:id="mhd1Label" managed="false" visible="false"/>
+                            <Label fx:id="mhd2Label" managed="false" visible="false"/>
+                            <Label fx:id="pause1Label" managed="false" visible="false"/>
+                            <Label fx:id="pause2Label" managed="false" visible="false"/>
+
+                            <HBox fx:id="mhdHBox" alignment="CENTER" spacing="5">
+                                <padding>
+                                    <Insets top="5"/>
+                                </padding>
+                                <Label text="MHD: "/>
+                                <DatePicker fx:id="mhdDatePicker" prefWidth="120"/>
+                                <Label text="Chargennummer:"/>
+                                <TextField fx:id="chargennummerField" prefWidth="120" alignment="CENTER"/>
+                                <Label text="Menge Kisten:"/>
+                                <TextField fx:id="mengeKistenField" prefWidth="50" alignment="CENTER"/>
+                                <Label text="Kisten ohne MHD:"/>
+                                <TextField fx:id="kistenOhneMhdField" prefWidth="50" alignment="CENTER"/>
+                                <Button text="+" fx:id="addMHDBtn" prefWidth="50"/>
+                            </HBox>
+
+                            <HBox fx:id="pauseHBox" alignment="CENTER" spacing="5">
+                                <padding>
+                                    <Insets top="5"/>
+                                </padding>
+                                <Label text="Pause:"/>
+                                <Label text="von"/>
+                                <TextField fx:id="pausevonField" prefWidth="60" alignment="CENTER"/>
+                                <Label text="bis"/>
+                                <TextField fx:id="pausebisField" prefWidth="60" alignment="CENTER"/>
+                                <Label text=". Pause durchfahren, personal von Linie "/>
+                                <TextField fx:id="durchfahrenPersonalField" prefWidth="30" alignment="CENTER"/>
+                                <Label text="."/>
+                                <Button text="+" fx:id="addPauseBtn" prefWidth="50" managed="true" visible="true"/>
+                            </HBox>
+                        </VBox>                       <!-- Produktionsdokumentation-->
+
+                        <Separator/>
+
+                        <VBox alignment="CENTER" spacing="5">
+                            <fx:define>
+                                <ToggleGroup fx:id="qparameterToggleGroup"/>
+                            </fx:define>
+                            <padding>
+                                <Insets top="5" bottom="5"/>
+                            </padding>
+
+                            <HBox alignment="CENTER">
+                                <Label text="QUALITATSPARAMETER"/>
+                            </HBox>
+                            <HBox alignment="CENTER" spacing="10">
+                                <Label text="Dichtheitsprobe nach Umbau durch Linienfuhrer:"/>
+                                <RadioButton text="ok" toggleGroup="$qparameterToggleGroup"/>
+                                <RadioButton text="fehlerhaft" toggleGroup="$qparameterToggleGroup"/>
+                                <RadioButton text="kein Umbau" toggleGroup="$qparameterToggleGroup"/>
+                            </HBox>
+                        </VBox>               <!-- Qualitatsparameter -->
+
+                        <Separator/>
+
+                        <VBox alignment="CENTER" spacing="5">
+                            <padding>
+                                <Insets top="5" bottom="5"/>
+                            </padding>
+
+                            <Label text="QUALITATSSICHERUNG"/>
+
+                            <Label fx:id="qs1Label" managed="false" visible="false"/>
+                            <Label fx:id="qs2Label" managed="false" visible="false"/>
+                            <Label fx:id="qs3Label" managed="false" visible="false"/>
+                            <Label fx:id="qs4Label" managed="false" visible="false"/>
+                            <Label fx:id="qs5Label" managed="false" visible="false"/>
+                            <Label fx:id="qs6Label" managed="false" visible="false"/>
+
+                            <GridPane alignment="CENTER" hgap="10">
+                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                    <Label text="Uhrzeit"/>
+                                    <TextField fx:id="qsUhrzeitField" alignment="CENTER" prefWidth="60"/>
+                                </VBox>
+                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                    <Label text="O2"/>
+                                    <TextField fx:id="qsO2Field" alignment="CENTER" prefWidth="60"/>
+                                </VBox>
+                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                                    <Label text="CO2"/>
+                                    <TextField fx:id="qsCO2Field" alignment="CENTER" prefWidth="60"/>
+                                </VBox>
+                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="3">
+                                    <Label text="Scheiben"/>
+                                    <TextField fx:id="scheibenField" alignment="CENTER" prefWidth="100"/>
+                                </VBox>
+                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="4" spacing="5">
+                                    <padding>
+                                        <Insets bottom="5"/>
+                                    </padding>
+                                    <Label text="Verschluss/Dichtheit"/>
+                                    <HBox alignment="CENTER" spacing="5">
+                                        <fx:define>
+                                            <ToggleGroup fx:id="verschlussTG"/>
+                                        </fx:define>
+                                        <RadioButton text="ok" toggleGroup="$verschlussTG"/>
+                                        <RadioButton text="optisch fehlerhaft" toggleGroup="$verschlussTG"/>
+                                        <RadioButton text="Tauchtest ok" toggleGroup="$verschlussTG"/>
+                                    </HBox>
+                                </VBox>
+                                <VBox GridPane.rowIndex="0" GridPane.columnIndex="5" alignment="CENTER">
+                                    <Label text="Prufer"/>
+                                    <TextField fx:id="pruferField" alignment="CENTER"/>
+                                </VBox>
+                                <VBox GridPane.rowIndex="0" GridPane.columnIndex="6" alignment="BOTTOM_RIGHT">
+                                    <Button text="+" fx:id="addQSBtn" prefWidth="50"/>
+                                </VBox>
+                            </GridPane>
+                        </VBox>               <!-- Qualitatssicherung -->
+
+                        <Separator/>
+
+                        <HBox alignment="CENTER" spacing="20">
+                            <padding>
+                                <Insets top="5" bottom="5"/>
+                            </padding>
+
+                            <VBox alignment="CENTER" spacing="5">
+
+                                <Label text="STORUNG"/>
+
+                                <Label fx:id="storung1Label" managed="false" visible="false"/>
+                                <Label fx:id="storung2Label" managed="false" visible="false"/>
+                                <Label fx:id="storung3Label" managed="false" visible="false"/>
+                                <Label fx:id="storung4Label" managed="false" visible="false"/>
+                                <Label fx:id="storung5Label" managed="false" visible="false"/>
+                                <Label fx:id="storung6Label" managed="false" visible="false"/>
+                                <Label fx:id="storung7Label" managed="false" visible="false"/>
+                                <Label fx:id="storung8Label" managed="false" visible="false"/>
+                                <Label fx:id="storung9Label" managed="false" visible="false"/>
+
+                                <GridPane alignment="CENTER" hgap="10">
+                                    <VBox alignment="CENTER" spacing="5" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                        <Label text="Uhrzeit"/>
+                                        <HBox alignment="CENTER" spacing="5">
+                                            <Label text="von"/>
+                                            <TextField fx:id="storungVonField" prefWidth="60" alignment="CENTER"/>
+                                            <Label text="bis"/>
+                                            <TextField fx:id="storungBisField" prefWidth="60" alignment="CENTER"/>
+                                        </HBox>
+                                    </VBox>
+                                    <VBox alignment="CENTER" spacing="5" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                        <Label text="Grund"/>
+                                        <ComboBox prefWidth="120" fx:id="storungCBox">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value=""/>
+                                                    <String fx:value="Umbau"/>
+                                                    <String fx:value="Folienwechsel"/>
+                                                    <String fx:value="Muster"/>
+                                                    <String fx:value="Umpacken"/>
+                                                    <String fx:value="Stanze"/>
+                                                    <String fx:value="Tiefziher"/>
+                                                    <String fx:value="Formstazion"/>
+                                                    <String fx:value="Slicer"/>
+                                                    <String fx:value="Problem Etiketten"/>
+                                                    <String fx:value="Problem Folie"/>
+                                                    <String fx:value="Keine Folie"/>
+                                                    <String fx:value="Keine Ware"/>
+                                                    <String fx:value="Andere Grund"/>
+                                                </FXCollections>
+                                            </items>
+                                        </ComboBox>
+                                    </VBox>
+                                    <VBox  GridPane.rowIndex="0" GridPane.columnIndex="2" alignment="BOTTOM_CENTER">
+                                        <Button text="+" fx:id="addStorungBtn" prefWidth="50"/>
+                                    </VBox>
+                                </GridPane>
+                            </VBox>
+                        </HBox>              <!-- Storung -->
+
+                        <Separator/>
+
+                        <VBox alignment="CENTER" spacing="5">
+                            <padding>
+                                <Insets top="5" bottom="5"/>
+                            </padding>
+
+                            <Label text="ZWISCHENREINIGUNG"/>
+
+                            <Label fx:id="reinigung1Label" managed="false" visible="false"/>
+                            <Label fx:id="reinigung2Label" managed="false" visible="false"/>
+                            <Label fx:id="reinigung3Label" managed="false" visible="false"/>
+                            <Label fx:id="reinigung4Label" managed="false" visible="false"/>
+                            <Label fx:id="reinigung5Label" managed="false" visible="false"/>
+                            <Label fx:id="reinigung6Label" managed="false" visible="false"/>
+
+                            <HBox spacing="5" alignment="CENTER">
+                                <Label text="von"/>
+                                <TextField fx:id="reinigungVonField" prefWidth="60" alignment="CENTER"/>
+                                <Label text="bis"/>
+                                <TextField fx:id="reinigungBisField" prefWidth="60" alignment="CENTER"/>
+                                <CheckBox text="Zwischenreinigung"/>
+                                <CheckBox text="Reinigung und Reperatur"/>
+                                <CheckBox text="Messerkontrolle"/>
+                                <Button fx:id="addReinigungBtn" text="+" prefWidth="50"/>
+                            </HBox>
+
+                        </VBox>               <!-- Zwischenreinigung -->
+
+                        <Separator/>
+
+                        <VBox alignment="CENTER" spacing="5">
+                            <padding>
+                                <Insets top="5" bottom="5"/>
+                            </padding>
+
+                            <Label text="MESSER"/>
+
+                            <Label fx:id="messerwechsel1Label" managed="false" visible="false"/>
+                            <Label fx:id="messerwechsel2Label" managed="false" visible="false"/>
+                            <Label fx:id="messerwechsel3Label" managed="false" visible="false"/>
+
+                            <HBox alignment="CENTER" spacing="5">
+                                <Label text="Messer Nummer: "/>
+                                <TextField fx:id="messerNrField" prefWidth="50" alignment="CENTER"/>
+                            </HBox>
+                            <HBox alignment="CENTER" spacing="5">
+                                <Label text="Messerwechsel: von"/>
+                                <TextField fx:id="messerwechselVonField" prefWidth="60" alignment="CENTER"/>
+                                <Label text="bis"/>
+                                <TextField fx:id="messerwechselBisField" prefWidth="60" alignment="CENTER"/>
+                                <Label text="Messer Nr."/>
+                                <TextField fx:id="neuMesserNrField" prefWidth="50" alignment="CENTER"/>
+                                <Button fx:id="messerwechselBtn" prefWidth="50" text="+"/>
+                            </HBox>
+                        </VBox>               <!-- Messer -->
+
+                        <Separator/>
+
+                        <VBox alignment="CENTER" spacing="5">
+                            <padding>
+                                <Insets top="5" bottom="5"/>
+                            </padding>
+
+                            <Label text="FOLIEN"/>
+
+                            <HBox alignment="CENTER" spacing="20">
+
+                                <VBox alignment="CENTER" spacing="10">
+                                    <Label text="Unterfolie"/>
+                                    <GridPane alignment="CENTER" hgap="5" vgap="5">
+                                        <Label text="Artikelnummer" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <TextField fx:id="unterFolieArtikelnrField" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER"/>
+                                        <Label text="Folienbezeichnung / Starke" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <HBox alignment="CENTER" spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                                            <TextField fx:id="unterfolieBezeichnungField" prefWidth="100" alignment="CENTER"/>
+                                            <Label text="/"/>
+                                            <TextField fx:id="unterfolieStarke" prefWidth="50" alignment="CENTER"/>
+                                        </HBox>
+                                        <Label text="Hersteller" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                        <TextField fx:id="unterfolieHerstellerField" GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER"/>
+                                    </GridPane>
+                                </VBox>       <!-- Unterfolie -->
+
+                                <Separator orientation="VERTICAL"/>
+
+                                <VBox alignment="CENTER" spacing="10">
+                                    <Label text="Oberfolie"/>
+                                    <GridPane alignment="CENTER" hgap="5" vgap="5">
+                                        <Label text="Artikelnummer" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <TextField fx:id="oberFolieArtikelnrField" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER"/>
+                                        <Label text="Folienbezeichnung / Starke" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <HBox alignment="CENTER" spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                                            <TextField fx:id="oberfolieBezeichnungField" prefWidth="100" alignment="CENTER"/>
+                                            <Label text="/"/>
+                                            <TextField fx:id="oberfolieStarke" prefWidth="50" alignment="CENTER"/>
+                                        </HBox>
+                                        <Label text="Hersteller" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                        <TextField fx:id="oberfolieHerstellerField" GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER"/>
+                                    </GridPane>
+                                </VBox>       <!-- oberfolie -->
+
+                            </HBox>
+                        </VBox>               <!-- Folien -->
+
+                        <Separator/>
+                    </VBox>
+
+                </content>
+
+            </ScrollPane>
+        </Tab>
+
+        <Tab text="PRINT PREVIEW" closable="false">
+            <content>
+                <BorderPane>
+                    <left>
+                        <VBox alignment="CENTER" spacing="20">
+                            <Button prefHeight="50" prefWidth="100" wrapText="true" text="Save Document" textAlignment="CENTER"/>
+                            <Button prefHeight="50" prefWidth="100" wrapText="true" text="Print Document" textAlignment="CENTER"/>
+                        </VBox>
+                    </left>
+
+                    <center>
+                            <HBox alignment="TOP_CENTER">
+                                <ScrollPane fitToWidth="true">
+                                    <padding>
+                                        <Insets top="10" right="10" left="10" bottom="10"/>
+                                    </padding>
+
+                                    <HBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox">
+                                        <Label text="Test"/>
+                                    </HBox>
+                                </ScrollPane>
+                            </HBox>
+                    </center>
+
+
+
+                </BorderPane>
+            </content>
+        </Tab>
+
+        <Tab text="LISTE" closable="false">
+
+        </Tab>
+    </tabs>
+
+
+
+
+</TabPane>
