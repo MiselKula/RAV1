@@ -379,6 +379,9 @@
                 <BorderPane>
                     <left>
                         <VBox alignment="CENTER" spacing="20">
+                            <padding>
+                                <Insets left="10"/>
+                            </padding>
                             <Button prefHeight="50" prefWidth="100" wrapText="true" text="Save Document" textAlignment="CENTER"/>
                             <Button prefHeight="50" prefWidth="100" wrapText="true" text="Print Document" textAlignment="CENTER"/>
                         </VBox>
