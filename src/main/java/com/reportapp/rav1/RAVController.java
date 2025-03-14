@@ -5,10 +5,4 @@ public class RAVController {
 
 
 
-    public void initialize() {
-
-    }
-
-
-
 }
