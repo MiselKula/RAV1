@@ -108,7 +108,7 @@
 
                             <HBox fx:id="pauseHBox" alignment="CENTER" spacing="5">
                                 <padding>
-                                    <Insets top="5"/>
+                                    <Insets top="5" bottom="5"/>
                                 </padding>
                                 <Label text="Pause:"/>
                                 <Label text="von"/>
@@ -380,7 +380,7 @@
                     <left>
                         <VBox alignment="CENTER" spacing="20">
                             <padding>
-                                <Insets left="10"/>
+                                <Insets left="10" right="10"/>
                             </padding>
                             <Button prefHeight="50" prefWidth="100" wrapText="true" text="Save Document" textAlignment="CENTER"/>
                             <Button prefHeight="50" prefWidth="100" wrapText="true" text="Print Document" textAlignment="CENTER"/>
@@ -388,17 +388,38 @@
                     </left>
 
                     <center>
-                            <HBox alignment="TOP_CENTER">
-                                <ScrollPane fitToWidth="true">
+                            <VBox alignment="TOP_CENTER" fillWidth="false" styleClass="printPrevVBox">
+                                <ScrollPane fitToWidth="true" prefWidth="595">
                                     <padding>
                                         <Insets top="10" right="10" left="10" bottom="10"/>
                                     </padding>
 
-                                    <HBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox">
-                                        <Label text="Test"/>
-                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox" fillWidth="false">
+                                        <padding>
+                                            <Insets top="10"/>
+                                        </padding>
+
+                                        <GridPane id="headerGridPane" alignment="CENTER" prefWidth="515" hgap="25">
+                                            <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER">
+                                                <Label text="LOGO" prefWidth="75" prefHeight="50"/>
+                                            </VBox>
+
+                                            <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER">
+                                                <Label text="Kapitel: 7.4.2 / Produktion / Fertigung" id="headerText1"/>
+                                                <Label text="Formular / Dokumentennummer:"/>
+                                                <Label text="7_FO_0108_Slicerlinien Tagesprotokoll.doc" id="headerText2"/>
+                                            </VBox>
+
+                                            <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" alignment="CENTER">
+                                                <Label text="Seite 1 von 4"/>
+                                                <Label text=""/>
+                                                <Label text="Version: 7"/>
+                                            </VBox>
+
+                                        </GridPane>
+                                    </VBox>
                                 </ScrollPane>
-                            </HBox>
+                            </VBox>
                     </center>
 
 
