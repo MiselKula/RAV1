@@ -27,9 +27,32 @@
                             <Label text="Schneidtag:"/>
                             <Label fx:id="schneidtagLabel"/>
                             <Label text="Schicht:"/>
-                            <TextField fx:id="schichtField" prefWidth="25" alignment="CENTER"/>
+                            <ComboBox fx:id="schichtCBox" prefWidth="60">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="1"/>
+                                        <String fx:value="2"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
                             <Label text="Linie:"/>
-                            <TextField fx:id="linieField" prefWidth="25" alignment="CENTER"/>
+                            <ComboBox fx:id="linieCBox" prefWidth="60">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="1"/>
+                                        <String fx:value="2"/>
+                                        <String fx:value="3"/>
+                                        <String fx:value="4"/>
+                                        <String fx:value="5"/>
+                                        <String fx:value="6"/>
+                                        <String fx:value="7"/>
+                                        <String fx:value="8"/>
+                                        <String fx:value="9"/>
+                                        <String fx:value="10"/>
+                                        <String fx:value="11"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
                         </HBox>         <!-- Datum -->
 
                         <Separator/>
@@ -394,7 +417,7 @@
                                         <Insets top="10" right="10" left="10" bottom="10"/>
                                     </padding>
 
-                                    <VBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox" fillWidth="false">
+                                    <VBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox" fillWidth="false" spacing="5">
                                         <padding>
                                             <Insets top="10"/>
                                         </padding>
@@ -416,7 +439,39 @@
                                                 <Label text="Version: 7"/>
                                             </VBox>
 
-                                        </GridPane>
+                                        </GridPane>     <!-- HEADER -->
+
+                                        <GridPane id="topGridPane" alignment="CENTER" prefWidth="515">
+                                            <HBox id="datumHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="125" spacing="10">
+                                                <Label text="Datum:"/>
+                                                <Label fx:id="ppDatumLabel" id="ppDatumLabel"/>
+                                            </HBox>
+
+                                            <HBox id="schneidtagHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="125" spacing="10">
+                                                <Label text="Schneidtag:"/>
+                                                <Label fx:id="ppSchneidtagLabel" id="ppSchneidtagLabel"/>
+                                            </HBox>
+
+                                            <HBox id="schichtHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="125" spacing="10">
+                                                <Label text="Schicht:"/>
+                                                <Label fx:id="ppSchichtLabel" id="ppSchichtLabel"/>
+                                            </HBox>
+
+                                            <HBox id="linieHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="125" spacing="10">
+                                                <Label text="Linie:"/>
+                                                <Label fx:id="ppLinieLabel" id="ppLinieLabel"/>
+                                            </HBox>
+                                        </GridPane>                  <!-- DATUM -->
+
+                                        <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515">
+                                            <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                                <Label text="Personal" id="personalLabel"/>
+                                            </HBox>
+
+                                            <VBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0">
+
+                                            </VBox>
+                                        </GridPane>             <!-- PERSONAL-->
                                     </VBox>
                                 </ScrollPane>
                             </VBox>
