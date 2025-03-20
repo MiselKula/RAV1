@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
+<?import javafx.scene.shape.Line?>
 <TabPane xmlns:fx="http://javafx.com/fxml"
          fx:controller="com.reportapp.rav1.RAVController" stylesheets="@styles.css">
 
@@ -463,13 +464,35 @@
                                             </HBox>
                                         </GridPane>                  <!-- DATUM -->
 
-                                        <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515">
-                                            <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                        <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515" hgap="40">
+
+                                            <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="4">
                                                 <Label text="Personal" id="personalLabel"/>
-                                            </HBox>
+                                            </VBox>
 
-                                            <VBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                                            <Separator GridPane.rowIndex="1" GridPane.columnSpan="4"/>
 
+                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                                                <Label text="Linienfuhrer"/>
+                                                <Label fx:id="ppLinienfuhrerLabel" id="pplinienfuhrerLabel"/>
+                                            </VBox>
+
+                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                                                <Label text="Schaler"/>
+                                                <Label fx:id="ppSchalerLabel" id="ppSchalerLabel"/>
+                                            </VBox>
+
+                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2">
+                                                <Label text="Einleger"/>
+                                                <Label fx:id="ppEinlegerLabel"/>
+                                            </VBox>
+
+                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="3">
+                                                <Label text="Abschlichter" GridPane.columnSpan="4"/>
+                                                <HBox spacing="20">
+                                                    <Label fx:id="ppAbschlichterLabel1" id="ppAbsch1Label"/>
+                                                    <Label fx:id="ppAbschlichterLabel2" id="ppAbsch2Label"/>
+                                                </HBox>
                                             </VBox>
                                         </GridPane>             <!-- PERSONAL-->
                                     </VBox>

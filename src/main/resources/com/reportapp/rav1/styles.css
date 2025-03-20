@@ -15,17 +15,20 @@
         -fx-font-family: Arial;
         -fx-font-size: 12px;
     }
-    
-    #headerText1 {
+
+    #headerText1, #personalLabel, #ppDatumLabel, #ppSchneidtagLabel, #ppSchichtLabel, #ppLinieLabel,
+                  #pplinienfuhrerLabel, #ppSchalerLabel, #ppEinlegerLabel, #ppAbsch1Label, #ppAbsch2Label {
         -fx-font-family: Arial;
         -fx-font-size: 14px;
         -fx-font-weight: bold;
     }
     
-    #headerText2 , #personalLabel, #ppDatumLabel, #ppSchneidtagLabel, #ppSchichtLabel, #ppLinieLabel{
+    #headerText2 {
+        -fx-font-family: Arial;
         -fx-font-size: 12px;
         -fx-font-weight: bold;
     }
+
 }
 
 
