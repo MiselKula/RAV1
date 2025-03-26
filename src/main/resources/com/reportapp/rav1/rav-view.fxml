@@ -5,12 +5,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
-<?import javafx.scene.shape.Line?>
 <TabPane xmlns:fx="http://javafx.com/fxml"
          fx:controller="com.reportapp.rav1.RAVController" stylesheets="@styles.css">
 
     <tabs>
-        <Tab text="TAGESPROTOKOL" closable="false">
+        <Tab text="HomeScreen" closable="false">
+            <content>
+
+            </content>
+        </Tab>
+        <Tab text="LINIENFUHRER" closable="false">
             <ScrollPane fitToHeight="true">
                 <content>
                     <VBox alignment="TOP_LEFT">
@@ -503,6 +507,12 @@
 
 
                 </BorderPane>
+            </content>
+        </Tab>
+
+        <Tab text="ABSCHLICHTER" closable="false">
+            <content>
+
             </content>
         </Tab>
 
