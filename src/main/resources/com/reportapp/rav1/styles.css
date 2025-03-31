@@ -4,10 +4,12 @@
         -fx-border-width: 1;
 }
 
-#headerGridPane, #personalGridPane, #topGridPane {
+#headerGridPane, #personalGridPane, #topGridPane, #qualitatssicherungVBox {
     -fx-border-color: black;
     -fx-border-width: 1;
 }
+
+
 
 .printPrevVBox{
 

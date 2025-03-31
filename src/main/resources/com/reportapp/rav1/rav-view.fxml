@@ -9,11 +9,15 @@
          fx:controller="com.reportapp.rav1.RAVController" stylesheets="@styles.css">
 
     <tabs>
-        <Tab text="HomeScreen" closable="false">
+        <Tab text="HOME" closable="false">
             <content>
-
+                <HBox alignment="CENTER" spacing="50">
+                    <Button text="LINIENFUHRER" prefWidth="200" prefHeight="150"/>
+                    <Button text="ABSCHLICHTER" prefWidth="200" prefHeight="150"/>
+                </HBox>
             </content>
         </Tab>
+
         <Tab text="LINIENFUHRER" closable="false">
             <ScrollPane fitToHeight="true">
                 <content>
@@ -170,63 +174,6 @@
                                 <RadioButton text="kein Umbau" toggleGroup="$qparameterToggleGroup"/>
                             </HBox>
                         </VBox>               <!-- Qualitatsparameter -->
-
-                        <Separator/>
-
-                        <VBox alignment="CENTER" spacing="5">
-                            <padding>
-                                <Insets top="5" bottom="5"/>
-                            </padding>
-
-                            <Label text="QUALITATSSICHERUNG"/>
-
-                            <Label fx:id="qs1Label" managed="false" visible="false"/>
-                            <Label fx:id="qs2Label" managed="false" visible="false"/>
-                            <Label fx:id="qs3Label" managed="false" visible="false"/>
-                            <Label fx:id="qs4Label" managed="false" visible="false"/>
-                            <Label fx:id="qs5Label" managed="false" visible="false"/>
-                            <Label fx:id="qs6Label" managed="false" visible="false"/>
-
-                            <GridPane alignment="CENTER" hgap="10">
-                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
-                                    <Label text="Uhrzeit"/>
-                                    <TextField fx:id="qsUhrzeitField" alignment="CENTER" prefWidth="60"/>
-                                </VBox>
-                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1">
-                                    <Label text="O2"/>
-                                    <TextField fx:id="qsO2Field" alignment="CENTER" prefWidth="60"/>
-                                </VBox>
-                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2">
-                                    <Label text="CO2"/>
-                                    <TextField fx:id="qsCO2Field" alignment="CENTER" prefWidth="60"/>
-                                </VBox>
-                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="3">
-                                    <Label text="Scheiben"/>
-                                    <TextField fx:id="scheibenField" alignment="CENTER" prefWidth="100"/>
-                                </VBox>
-                                <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="4" spacing="5">
-                                    <padding>
-                                        <Insets bottom="5"/>
-                                    </padding>
-                                    <Label text="Verschluss/Dichtheit"/>
-                                    <HBox alignment="CENTER" spacing="5">
-                                        <fx:define>
-                                            <ToggleGroup fx:id="verschlussTG"/>
-                                        </fx:define>
-                                        <RadioButton text="ok" toggleGroup="$verschlussTG"/>
-                                        <RadioButton text="optisch fehlerhaft" toggleGroup="$verschlussTG"/>
-                                        <RadioButton text="Tauchtest ok" toggleGroup="$verschlussTG"/>
-                                    </HBox>
-                                </VBox>
-                                <VBox GridPane.rowIndex="0" GridPane.columnIndex="5" alignment="CENTER">
-                                    <Label text="Prufer"/>
-                                    <TextField fx:id="pruferField" alignment="CENTER"/>
-                                </VBox>
-                                <VBox GridPane.rowIndex="0" GridPane.columnIndex="6" alignment="BOTTOM_RIGHT">
-                                    <Button text="+" fx:id="addQSBtn" prefWidth="50"/>
-                                </VBox>
-                            </GridPane>
-                        </VBox>               <!-- Qualitatssicherung -->
 
                         <Separator/>
 
@@ -402,117 +349,193 @@
             </ScrollPane>
         </Tab>
 
+        <Tab text="ABSCHLICHTER" closable="false">
+            <VBox alignment="CENTER" spacing="20">
+
+                <VBox alignment="CENTER" spacing="10" id="abschlichterVbox">
+                    <Label text="ABSCHLICHTER"/>
+
+                    <Separator/>
+
+                    <HBox spacing="20" alignment="CENTER">
+                        <Label fx:id="abschArtikelNummer" text="1231" id="abschArtikelNummer"/>
+                        <Label fx:id="abschBezeichnung" text="hofer kasewurst 100g" id="abschBezeichnung"/>
+                    </HBox>
+
+
+
+
+                </VBox>                     <!-- Abschlichter -->
+
+                <VBox alignment="CENTER" spacing="10" id="qualitatssicherungVBox">
+                    <padding>
+                        <Insets top="5" bottom="5" left="5"/>
+                    </padding>
+
+                    <Label text="QUALITATSSICHERUNG" GridPane.rowIndex="0"/>
+                    <Separator/>
+
+                    <HBox spacing="5" alignment="CENTER">
+                        <HBox spacing="5" alignment="CENTER">
+                            <Label text="Uhrzeit"/>
+                            <TextField fx:id="qsUhrzeitField" alignment="CENTER" prefWidth="60"/>
+                            <Label text=", "/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER">
+                            <Label text="O2"/>
+                            <TextField fx:id="qsO2Field" alignment="CENTER" prefWidth="60"/>
+                            <Label text=" % , "/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER">
+                            <Label text="CO2"/>
+                            <TextField fx:id="qsCO2Field" alignment="CENTER" prefWidth="60"/>
+                            <Label text=" % , "/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER">
+                            <Label text="Scheiben"/>
+                            <TextField fx:id="scheibenField" alignment="CENTER" prefWidth="60"/>
+                        </HBox>
+                    </HBox>
+
+                    <VBox spacing="5" alignment="CENTER">
+                        <Label text="Verschluss/Dichtheit"/>
+                        <HBox alignment="CENTER" spacing="10">
+                            <fx:define>
+                                <ToggleGroup fx:id="verschlussTG"/>
+                            </fx:define>
+                            <RadioButton text="ok" toggleGroup="$verschlussTG"/>
+                            <RadioButton text="optisch fehlerhaft" toggleGroup="$verschlussTG"/>
+                            <RadioButton text="Tauchtest ok" toggleGroup="$verschlussTG"/>
+                        </HBox>
+                    </VBox>
+
+                    <HBox alignment="CENTER" spacing="5">
+                        <Label text="Prufer:"/>
+                        <TextField fx:id="pruferField" alignment="CENTER"/>
+                    </HBox>
+
+                    <Button text="+" fx:id="addQSBtn" prefWidth="100"/>
+
+                </VBox>               <!-- Qualitatssicherung -->
+            </VBox>
+
+
+        </Tab>
+
         <Tab text="PRINT PREVIEW" closable="false">
             <content>
                 <BorderPane>
                     <left>
-                        <VBox alignment="CENTER" spacing="20">
+                        <HBox alignment="TOP_CENTER" spacing="20">
                             <padding>
-                                <Insets left="10" right="10"/>
+                                <Insets left="10" right="10" top="10"/>
                             </padding>
-                            <Button prefHeight="50" prefWidth="100" wrapText="true" text="Save Document" textAlignment="CENTER"/>
-                            <Button prefHeight="50" prefWidth="100" wrapText="true" text="Print Document" textAlignment="CENTER"/>
-                        </VBox>
+                            <VBox spacing="10">
+                                <HBox  alignment="TOP_CENTER" spacing="20">
+                                    <Button prefHeight="50" prefWidth="100" wrapText="true" text="Save Document" textAlignment="CENTER"/>
+                                    <Button prefHeight="50" prefWidth="100" wrapText="true" text="Print Document" textAlignment="CENTER"/>
+                                </HBox>
+
+                                <ListView prefHeight="150">
+
+                                </ListView>
+                            </VBox>
+
+                        </HBox>
                     </left>
 
                     <center>
-                            <VBox alignment="TOP_CENTER" fillWidth="false" styleClass="printPrevVBox">
-                                <ScrollPane fitToWidth="true" prefWidth="595">
+                        <VBox alignment="TOP_LEFT" fillWidth="false" styleClass="printPrevVBox">
+                            <ScrollPane fitToWidth="true" prefWidth="595">
+                                <padding>
+                                    <Insets top="10" right="10" left="10" bottom="10"/>
+                                </padding>
+
+                                <VBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox" fillWidth="false" spacing="5">
                                     <padding>
-                                        <Insets top="10" right="10" left="10" bottom="10"/>
+                                        <Insets top="10"/>
                                     </padding>
 
-                                    <VBox alignment="TOP_CENTER" prefHeight="842" prefWidth="595" id="printPreviewVBox" fillWidth="false" spacing="5">
-                                        <padding>
-                                            <Insets top="10"/>
-                                        </padding>
+                                    <GridPane id="headerGridPane" alignment="CENTER" prefWidth="515" hgap="25">
+                                        <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER">
+                                            <Label text="LOGO" prefWidth="75" prefHeight="50"/>
+                                        </VBox>
 
-                                        <GridPane id="headerGridPane" alignment="CENTER" prefWidth="515" hgap="25">
-                                            <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER">
-                                                <Label text="LOGO" prefWidth="75" prefHeight="50"/>
-                                            </VBox>
+                                        <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER">
+                                            <Label text="Kapitel: 7.4.2 / Produktion / Fertigung" id="headerText1"/>
+                                            <Label text="Formular / Dokumentennummer:"/>
+                                            <Label text="7_FO_0108_Slicerlinien Tagesprotokoll.doc" id="headerText2"/>
+                                        </VBox>
 
-                                            <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER">
-                                                <Label text="Kapitel: 7.4.2 / Produktion / Fertigung" id="headerText1"/>
-                                                <Label text="Formular / Dokumentennummer:"/>
-                                                <Label text="7_FO_0108_Slicerlinien Tagesprotokoll.doc" id="headerText2"/>
-                                            </VBox>
+                                        <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" alignment="CENTER">
+                                            <Label text="Seite 1 von 4"/>
+                                            <Label text=""/>
+                                            <Label text="Version: 7"/>
+                                        </VBox>
 
-                                            <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" alignment="CENTER">
-                                                <Label text="Seite 1 von 4"/>
-                                                <Label text=""/>
-                                                <Label text="Version: 7"/>
-                                            </VBox>
+                                    </GridPane>     <!-- HEADER -->
 
-                                        </GridPane>     <!-- HEADER -->
+                                    <GridPane id="topGridPane" alignment="CENTER" prefWidth="515">
+                                        <HBox id="datumHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="125" spacing="10">
+                                            <Label text="Datum:"/>
+                                            <Label fx:id="ppDatumLabel" id="ppDatumLabel"/>
+                                        </HBox>
 
-                                        <GridPane id="topGridPane" alignment="CENTER" prefWidth="515">
-                                            <HBox id="datumHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="125" spacing="10">
-                                                <Label text="Datum:"/>
-                                                <Label fx:id="ppDatumLabel" id="ppDatumLabel"/>
+                                        <HBox id="schneidtagHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="125" spacing="10">
+                                            <Label text="Schneidtag:"/>
+                                            <Label fx:id="ppSchneidtagLabel" id="ppSchneidtagLabel"/>
+                                        </HBox>
+
+                                        <HBox id="schichtHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="125" spacing="10">
+                                            <Label text="Schicht:"/>
+                                            <Label fx:id="ppSchichtLabel" id="ppSchichtLabel"/>
+                                        </HBox>
+
+                                        <HBox id="linieHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="125" spacing="10">
+                                            <Label text="Linie:"/>
+                                            <Label fx:id="ppLinieLabel" id="ppLinieLabel"/>
+                                        </HBox>
+                                    </GridPane>                  <!-- DATUM -->
+
+                                    <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515" hgap="40">
+
+                                        <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="4">
+                                            <Label text="Personal" id="personalLabel"/>
+                                        </VBox>
+
+                                        <Separator GridPane.rowIndex="1" GridPane.columnSpan="4"/>
+
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                                            <Label text="Linienfuhrer"/>
+                                            <Label fx:id="ppLinienfuhrerLabel" id="pplinienfuhrerLabel"/>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                                            <Label text="Schaler"/>
+                                            <Label fx:id="ppSchalerLabel" id="ppSchalerLabel"/>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2">
+                                            <Label text="Einleger"/>
+                                            <Label fx:id="ppEinlegerLabel"/>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="3">
+                                            <Label text="Abschlichter" GridPane.columnSpan="4"/>
+                                            <HBox spacing="20">
+                                                <Label fx:id="ppAbschlichterLabel1" id="ppAbsch1Label"/>
+                                                <Label fx:id="ppAbschlichterLabel2" id="ppAbsch2Label"/>
                                             </HBox>
-
-                                            <HBox id="schneidtagHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="125" spacing="10">
-                                                <Label text="Schneidtag:"/>
-                                                <Label fx:id="ppSchneidtagLabel" id="ppSchneidtagLabel"/>
-                                            </HBox>
-
-                                            <HBox id="schichtHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="125" spacing="10">
-                                                <Label text="Schicht:"/>
-                                                <Label fx:id="ppSchichtLabel" id="ppSchichtLabel"/>
-                                            </HBox>
-
-                                            <HBox id="linieHBox" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="125" spacing="10">
-                                                <Label text="Linie:"/>
-                                                <Label fx:id="ppLinieLabel" id="ppLinieLabel"/>
-                                            </HBox>
-                                        </GridPane>                  <!-- DATUM -->
-
-                                        <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515" hgap="40">
-
-                                            <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="4">
-                                                <Label text="Personal" id="personalLabel"/>
-                                            </VBox>
-
-                                            <Separator GridPane.rowIndex="1" GridPane.columnSpan="4"/>
-
-                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0">
-                                                <Label text="Linienfuhrer"/>
-                                                <Label fx:id="ppLinienfuhrerLabel" id="pplinienfuhrerLabel"/>
-                                            </VBox>
-
-                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1">
-                                                <Label text="Schaler"/>
-                                                <Label fx:id="ppSchalerLabel" id="ppSchalerLabel"/>
-                                            </VBox>
-
-                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2">
-                                                <Label text="Einleger"/>
-                                                <Label fx:id="ppEinlegerLabel"/>
-                                            </VBox>
-
-                                            <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="3">
-                                                <Label text="Abschlichter" GridPane.columnSpan="4"/>
-                                                <HBox spacing="20">
-                                                    <Label fx:id="ppAbschlichterLabel1" id="ppAbsch1Label"/>
-                                                    <Label fx:id="ppAbschlichterLabel2" id="ppAbsch2Label"/>
-                                                </HBox>
-                                            </VBox>
-                                        </GridPane>             <!-- PERSONAL-->
-                                    </VBox>
-                                </ScrollPane>
-                            </VBox>
+                                        </VBox>
+                                    </GridPane>             <!-- PERSONAL-->
+                                </VBox>
+                            </ScrollPane>
+                        </VBox>
                     </center>
 
 
 
                 </BorderPane>
-            </content>
-        </Tab>
-
-        <Tab text="ABSCHLICHTER" closable="false">
-            <content>
-
             </content>
         </Tab>
 
