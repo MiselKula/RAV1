@@ -4,11 +4,16 @@
         -fx-border-width: 1;
 }
 
-#headerGridPane, #personalGridPane, #topGridPane, #qualitatssicherungVBox {
+#headerGridPane, #personalGridPane, #topGridPane {
     -fx-border-color: black;
     -fx-border-width: 1;
 }
 
+#qsReportsVBox {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+}
 
 
 .printPrevVBox{
