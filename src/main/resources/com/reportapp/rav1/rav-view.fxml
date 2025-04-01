@@ -32,11 +32,11 @@
                             </padding>
 
                             <Label text="Datum:"/>
-                            <Label fx:id="datumLabel"/>
+                            <Label fx:id="lfDatumLabel"/>
                             <Label text="Schneidtag:"/>
-                            <Label fx:id="schneidtagLabel"/>
+                            <Label fx:id="lfSchneidtagLabel"/>
                             <Label text="Schicht:"/>
-                            <ComboBox fx:id="schichtCBox" prefWidth="60">
+                            <ComboBox fx:id="lfSchichtCBox" prefWidth="60">
                                 <items>
                                     <FXCollections fx:factory="observableArrayList">
                                         <String fx:value="1"/>
@@ -45,7 +45,7 @@
                                 </items>
                             </ComboBox>
                             <Label text="Linie:"/>
-                            <ComboBox fx:id="linieCBox" prefWidth="60">
+                            <ComboBox fx:id="lfLinieCBox" prefWidth="60">
                                 <items>
                                     <FXCollections fx:factory="observableArrayList">
                                         <String fx:value="1"/>
@@ -76,21 +76,21 @@
                             </HBox>
                             <VBox>
                                 <Label text="Linienfuhrer:"/>
-                                <TextField fx:id="linienfuhrerField" prefWidth="120" alignment="CENTER"/>
+                                <TextField fx:id="lfLinienfuhrerField" prefWidth="120" alignment="CENTER"/>
                             </VBox>
                             <VBox>
                                 <Label text="Schaler:"/>
-                                <TextField fx:id="schalerField" prefWidth="120" alignment="CENTER"/>
+                                <TextField fx:id="lfSchalerField" prefWidth="120" alignment="CENTER"/>
                             </VBox>
                             <VBox>
                                 <Label text="Einleger:"/>
-                                <TextField fx:id="einlegerField" prefWidth="120" alignment="CENTER"/>
+                                <TextField fx:id="lfEinlegerField" prefWidth="120" alignment="CENTER"/>
                             </VBox>
                             <VBox>
                                 <Label text="Abschlichter:"/>
                                 <HBox spacing="10">
-                                    <TextField fx:id="absch1Field" prefWidth="120" alignment="CENTER"/>
-                                    <TextField fx:id="absch2Field" prefWidth="120" alignment="CENTER"/>
+                                    <TextField fx:id="lfAbsch1Field" prefWidth="120" alignment="CENTER"/>
+                                    <TextField fx:id="lfAbsch2Field" prefWidth="120" alignment="CENTER"/>
                                 </HBox>
                             </VBox>
                         </HBox>         <!-- Personal -->
@@ -437,8 +437,6 @@
                         <Label fx:id="qsReport8"/>
                     </VBox>
                 </HBox>                   <!-- Qualitatssicherung -->
-
-
             </VBox>
 
 

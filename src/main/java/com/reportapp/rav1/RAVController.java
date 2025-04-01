@@ -18,9 +18,9 @@ public class RAVController {
 
     //------------------TOP------------------------------------
     @FXML
-    private Label datumLabel, schneidtagLabel;
+    private Label lfDatumLabel, lfSchneidtagLabel;
     @FXML
-    private ComboBox <String> schichtCBox, linieCBox;
+    private ComboBox <String> lfSchichtCBox, lfLinieCBox;
     @FXML
     private Label ppDatumLabel, ppSchneidtagLabel, ppSchichtLabel, ppLinieLabel;
 
@@ -28,7 +28,7 @@ public class RAVController {
     @FXML
     private Label ppLinienfuhrerLabel, ppSchalerLabel, ppEinlegerLabel, ppAbschlichterLabel1, ppAbschlichterLabel2;
     @FXML
-    private TextField linienfuhrerField, schalerField, einlegerField, absch1Field, absch2Field;
+    private TextField lfLinienfuhrerField, lfSchalerField, lfEinlegerField, lfAbsch1Field, lfAbsch2Field;
 
     //--------------PRODUKTIONSDOKUMENTATION----------------------------------
 
@@ -47,8 +47,8 @@ public class RAVController {
     private void initializeDatum () {
         String date = LocalDate.now().format(dtf);
         String dayOfYear = String.valueOf(LocalDate.now().getDayOfYear());
-        datumLabel.setText(date);
-        schneidtagLabel.setText(dayOfYear);
+        lfDatumLabel.setText(date);
+        lfSchneidtagLabel.setText(dayOfYear);
     }
 
     private void bindItems (Label label, ObservableValue<?> item) {
@@ -62,15 +62,15 @@ public class RAVController {
 
     private void fillPrintPreview () {
         Platform.runLater(() ->  {
-            bindItems(ppDatumLabel, datumLabel.textProperty());
-            bindItems(ppSchneidtagLabel, schneidtagLabel.textProperty());
-            bindItems(ppSchichtLabel, schichtCBox.valueProperty());
-            bindItems(ppLinieLabel, linieCBox.valueProperty());
-            bindItems(ppLinienfuhrerLabel, linienfuhrerField.textProperty());
-            bindItems(ppSchalerLabel, schalerField.textProperty());
-            bindItems(ppEinlegerLabel, einlegerField.textProperty());
-            bindItems(ppAbschlichterLabel1, absch1Field.textProperty());
-            bindItems(ppAbschlichterLabel2, absch2Field.textProperty());
+            bindItems(ppDatumLabel, lfDatumLabel.textProperty());
+            bindItems(ppSchneidtagLabel, lfSchneidtagLabel.textProperty());
+            bindItems(ppSchichtLabel, lfSchichtCBox.valueProperty());
+            bindItems(ppLinieLabel, lfLinieCBox.valueProperty());
+            bindItems(ppLinienfuhrerLabel, lfLinienfuhrerField.textProperty());
+            bindItems(ppSchalerLabel, lfSchalerField.textProperty());
+            bindItems(ppEinlegerLabel, lfEinlegerField.textProperty());
+            bindItems(ppAbschlichterLabel1, lfAbsch1Field.textProperty());
+            bindItems(ppAbschlichterLabel2, lfAbsch2Field.textProperty());
 
         });
 
