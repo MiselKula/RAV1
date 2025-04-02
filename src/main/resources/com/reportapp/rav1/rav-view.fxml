@@ -355,15 +355,49 @@
                     <Insets top="20"/>
                 </padding>
 
-                <VBox alignment="CENTER" spacing="10" id="abschlichterVbox">
+                <HBox alignment="CENTER_LEFT" spacing="30" id="abschlichterVbox">
+                    <padding>
+                        <Insets left="10"/>
+                    </padding>
 
-                    <HBox spacing="20" alignment="CENTER">
-                        <Label fx:id="abschArtikelNummer" text="1231" id="abschArtikelNummer"/>
-                        <Label fx:id="abschBezeichnung" text="hofer kasewurst 100g" id="abschBezeichnung"/>
-                    </HBox>
+                    <VBox spacing="5">
+                        <HBox spacing="20" alignment="CENTER_LEFT">
+                            <Label fx:id="abschArtikelNummer" text="1231" id="abschArtikelNummer"/>
+                            <Label fx:id="abschBezeichnung" text="hofer kasewurst 100g" id="abschBezeichnung"/>
+                        </HBox>
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="MHD: "/>
+                            <Label fx:id="abschMHD" id="abschMHD" text="12.01.2025"/>
+                        </HBox>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Chargennummer: "/>
+                            <Label fx:id="abschChargennummer" id="abschChargennummer" text="5525567800012"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <HBox spacing="50">
+                            <HBox spacing="10" alignment="CENTER_RIGHT">
+                                <Label text="Menge Kisten:"/>
+                                <TextField fx:id="abschMengeKistenField" prefWidth="60" alignment="CENTER"/>
+                            </HBox>
+                            <Button text="Add" prefWidth="100"/>
+                            <HBox spacing="10" alignment="CENTER_RIGHT">
+                                <Label text="Kisten ohne MHD:"/>
+                                <TextField fx:id="abschKistenOhneMHD" prefWidth="60" alignment="CENTER"/>
+                            </HBox>
+                        </HBox>
+                        <VBox id="abschKistenReport">
+                            <Label fx:id="abschKisten1Label"/>
+                            <Label fx:id="abschKisten2Label"/>
+                            <Label fx:id="abschKisten3Label"/>
+                            <Label fx:id="abschKisten4Label"/>
+                        </VBox>
+                    </VBox>
 
 
-                </VBox>                     <!-- Abschlichter -->
+                </HBox>                     <!-- Abschlichter -->
 
                 <Separator/>
 
