@@ -4,7 +4,7 @@
         -fx-border-width: 1;
 }
 
-#headerGridPane, #personalGridPane, #topGridPane {
+#headerGridPane, #personalGridPane, #topGridPane, #prduktionsDokumentationGridPane {
     -fx-border-color: black;
     -fx-border-width: 1;
 }
@@ -32,8 +32,9 @@
         -fx-font-size: 12px;
     }
 
-    #headerText1, #personalLabel, #ppDatumLabel, #ppSchneidtagLabel, #ppSchichtLabel, #ppLinieLabel,
-                  #pplinienfuhrerLabel, #ppSchalerLabel, #ppEinlegerLabel, #ppAbsch1Label, #ppAbsch2Label {
+    #headerText1, #ppPersonalLabel, #ppDatumLabel, #ppSchneidtagLabel, #ppSchichtLabel, #ppLinieLabel,
+                  #pplinienfuhrerLabel, #ppSchalerLabel, #ppEinlegerLabel, #ppAbsch1Label, #ppAbsch2Label,
+                  #ppProduktionsdokumentationLabel, #ppArtikelNrLabel, #ppBezeichnungLabel {
         -fx-font-family: Arial;
         -fx-font-size: 14px;
         -fx-font-weight: bold;

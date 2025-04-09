@@ -32,7 +32,16 @@ public class RAVController {
 
     //--------------PRODUKTIONSDOKUMENTATION----------------------------------
 
+    @FXML
+    private TextField lfArtikelNrField, lfBezeichnungField, mhdDatePicker, lfChargennummerField;
+    @FXML
+    private Label ppArtikelNrLabel, ppBezeichnungLabel;
 
+
+    //----------------- ABSCHLICHTER ---------------------------------
+
+    @FXML
+    private Label abschArtikelNummer, abschBezeichnung, abschMHD, abschChargennummer;
 
 
     public void initialize() {
@@ -66,11 +75,20 @@ public class RAVController {
             bindItems(ppSchneidtagLabel, lfSchneidtagLabel.textProperty());
             bindItems(ppSchichtLabel, lfSchichtCBox.valueProperty());
             bindItems(ppLinieLabel, lfLinieCBox.valueProperty());
+
             bindItems(ppLinienfuhrerLabel, lfLinienfuhrerField.textProperty());
             bindItems(ppSchalerLabel, lfSchalerField.textProperty());
             bindItems(ppEinlegerLabel, lfEinlegerField.textProperty());
             bindItems(ppAbschlichterLabel1, lfAbsch1Field.textProperty());
             bindItems(ppAbschlichterLabel2, lfAbsch2Field.textProperty());
+
+            bindItems(ppArtikelNrLabel, lfArtikelNrField.textProperty());
+            bindItems(ppBezeichnungLabel, lfBezeichnungField.textProperty());
+
+            bindItems(abschArtikelNummer, lfArtikelNrField.textProperty());
+            bindItems(abschBezeichnung, lfBezeichnungField.textProperty());
+            bindItems(abschMHD, mhdDatePicker.textProperty());
+            bindItems(abschChargennummer, lfChargennummerField.textProperty());
 
         });
 

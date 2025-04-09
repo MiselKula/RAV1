@@ -109,13 +109,13 @@
                                     <Insets top="5"/>
                                 </padding>
                                 <Label text="Artikel Nummer:"/>
-                                <TextField fx:id="artikelNrField" prefWidth="100" alignment="CENTER"/>
+                                <TextField fx:id="lfArtikelNrField" prefWidth="100" alignment="CENTER"/>
                                 <Label text="Bezeichnung:"/>
-                                <TextField fx:id="bezeichnungField" prefWidth="300" alignment="CENTER"/>
+                                <TextField fx:id="lfBezeichnungField" prefWidth="300" alignment="CENTER"/>
                                 <Label text="Zeit Beginn:"/>
-                                <TextField fx:id="zeitBeginnField" prefWidth="60" alignment="CENTER"/>
+                                <TextField fx:id="lfZeitBeginnField" prefWidth="60" alignment="CENTER"/>
                                 <Label text="Zeit Ende:"/>
-                                <TextField fx:id="zeitEndeField" prefWidth="60" alignment="CENTER"/>
+                                <TextField fx:id="lfZeitEndeField" prefWidth="60" alignment="CENTER"/>
                             </HBox>
 
                             <Label fx:id="mhd1Label" managed="false" visible="false"/>
@@ -128,9 +128,9 @@
                                     <Insets top="5"/>
                                 </padding>
                                 <Label text="MHD: "/>
-                                <DatePicker fx:id="mhdDatePicker" prefWidth="120"/>
+                                <TextField fx:id="mhdDatePicker" prefWidth="100" alignment="CENTER"/>
                                 <Label text="Chargennummer:"/>
-                                <TextField fx:id="chargennummerField" prefWidth="120" alignment="CENTER"/>
+                                <TextField fx:id="lfChargennummerField" prefWidth="120" alignment="CENTER"/>
                                 <Label text="Menge Kisten:"/>
                                 <TextField fx:id="mengeKistenField" prefWidth="50" alignment="CENTER"/>
                                 <Label text="Kisten ohne MHD:"/>
@@ -362,8 +362,8 @@
 
                     <VBox spacing="5">
                         <HBox spacing="20" alignment="CENTER_LEFT">
-                            <Label fx:id="abschArtikelNummer" text="1231" id="abschArtikelNummer"/>
-                            <Label fx:id="abschBezeichnung" text="hofer kasewurst 100g" id="abschBezeichnung"/>
+                            <Label fx:id="abschArtikelNummer" id="abschArtikelNummer"/>
+                            <Label fx:id="abschBezeichnung" id="abschBezeichnung"/>
                         </HBox>
 
                         <HBox spacing="10" alignment="CENTER_LEFT">
@@ -372,7 +372,7 @@
                         </HBox>
                         <HBox spacing="10" alignment="CENTER_LEFT">
                             <Label text="Chargennummer: "/>
-                            <Label fx:id="abschChargennummer" id="abschChargennummer" text="5525567800012"/>
+                            <Label fx:id="abschChargennummer" id="abschChargennummer"/>
                         </HBox>
                     </VBox>
 
@@ -551,37 +551,59 @@
                                         </HBox>
                                     </GridPane>                  <!-- DATUM -->
 
-                                    <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515" hgap="40">
+                                    <GridPane id="personalGridPane" alignment="CENTER" prefWidth="515" hgap="10">
 
-                                        <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="4">
-                                            <Label text="Personal" id="personalLabel"/>
+                                        <padding>
+                                            <Insets left="10" right="10"/>
+                                        </padding>
+
+                                        <VBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="4" prefWidth="515">
+                                            <Label text="Personal" id="ppPersonalLabel"/>
                                         </VBox>
 
                                         <Separator GridPane.rowIndex="1" GridPane.columnSpan="4"/>
 
-                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0" prefWidth="90">
                                             <Label text="Linienfuhrer"/>
                                             <Label fx:id="ppLinienfuhrerLabel" id="pplinienfuhrerLabel"/>
                                         </VBox>
 
-                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="90">
                                             <Label text="Schaler"/>
                                             <Label fx:id="ppSchalerLabel" id="ppSchalerLabel"/>
                                         </VBox>
 
-                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2">
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2" prefWidth="90">
                                             <Label text="Einleger"/>
                                             <Label fx:id="ppEinlegerLabel"/>
                                         </VBox>
 
-                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="3">
+                                        <VBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="3" prefWidth="180">
                                             <Label text="Abschlichter" GridPane.columnSpan="4"/>
-                                            <HBox spacing="20">
+                                            <HBox spacing="20" alignment="CENTER">
                                                 <Label fx:id="ppAbschlichterLabel1" id="ppAbsch1Label"/>
                                                 <Label fx:id="ppAbschlichterLabel2" id="ppAbsch2Label"/>
                                             </HBox>
                                         </VBox>
                                     </GridPane>             <!-- PERSONAL-->
+
+                                    <GridPane id="prduktionsDokumentationGridPane" alignment="CENTER" prefWidth="515" hgap="10">
+                                        <padding>
+                                            <Insets left="10" right="10"/>
+                                        </padding>
+
+                                        <Label text="Produktionsdokumentation" id="ppProduktionsdokumentationLabel" GridPane.rowIndex="0"
+                                               prefWidth="515" alignment="CENTER"/>
+
+                                        <Separator GridPane.rowIndex="1" prefWidth="515"/>
+
+                                        <HBox prefWidth="515" GridPane.rowIndex="2" spacing="20">
+                                            <Label text="Artikel Nr:"/>
+                                            <Label fx:id="ppArtikelNrLabel" id="ppArtikelNrLabel"/>
+                                            <Label text="Bezeichnung:"/>
+                                            <Label fx:id="ppBezeichnungLabel" id="ppBezeichnungLabel"/>
+                                        </HBox>
+                                    </GridPane>
                                 </VBox>
                             </ScrollPane>
                         </VBox>
