@@ -33,9 +33,9 @@ public class RAVController {
     //--------------PRODUKTIONSDOKUMENTATION----------------------------------
 
     @FXML
-    private TextField lfArtikelNrField, lfBezeichnungField, mhdDatePicker, lfChargennummerField;
+    private TextField lfArtikelNrField, lfBezeichnungField, lfDateField, lfChargennummerField, lfZeitBeginnField, lfZeitEndeField;
     @FXML
-    private Label ppArtikelNrLabel, ppBezeichnungLabel;
+    private Label ppArtikelNrLabel, ppBezeichnungLabel, ppZeitBeginnLabel, ppZeitEndeLabel, ppMHDLabel, ppChargennummerLabel;
 
 
     //----------------- ABSCHLICHTER ---------------------------------
@@ -84,11 +84,16 @@ public class RAVController {
 
             bindItems(ppArtikelNrLabel, lfArtikelNrField.textProperty());
             bindItems(ppBezeichnungLabel, lfBezeichnungField.textProperty());
+            bindItems(ppZeitBeginnLabel, lfZeitBeginnField.textProperty());
+            bindItems(ppZeitEndeLabel, lfZeitEndeField.textProperty());
+            bindItems(ppMHDLabel, lfDateField.textProperty());
+            bindItems(ppChargennummerLabel, lfChargennummerField.textProperty());
 
             bindItems(abschArtikelNummer, lfArtikelNrField.textProperty());
             bindItems(abschBezeichnung, lfBezeichnungField.textProperty());
-            bindItems(abschMHD, mhdDatePicker.textProperty());
+            bindItems(abschMHD, lfDateField.textProperty());
             bindItems(abschChargennummer, lfChargennummerField.textProperty());
+
 
         });
 

@@ -34,7 +34,8 @@
 
     #headerText1, #ppPersonalLabel, #ppDatumLabel, #ppSchneidtagLabel, #ppSchichtLabel, #ppLinieLabel,
                   #pplinienfuhrerLabel, #ppSchalerLabel, #ppEinlegerLabel, #ppAbsch1Label, #ppAbsch2Label,
-                  #ppProduktionsdokumentationLabel, #ppArtikelNrLabel, #ppBezeichnungLabel {
+                  #ppProduktionsdokumentationLabel, #ppArtikelNrLabel, #ppBezeichnungLabel,
+                  #ppZeitBeginnLabel, #ppZeitEndeLabel, #ppMHDLabel, #ppChargennummerLabel{
         -fx-font-family: Arial;
         -fx-font-size: 14px;
         -fx-font-weight: bold;
